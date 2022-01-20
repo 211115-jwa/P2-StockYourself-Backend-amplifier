@@ -18,7 +18,7 @@ import yahoofinance.Stock;
 import yahoofinance.YahooFinance;
 import yahoofinance.histquotes.Interval;
 
-import java.util.ArrayList;
+
 import java.util.Calendar;
 import java.util.List;
 
@@ -67,8 +67,16 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public Map<String, Stock> getListOfStocks(String[] listOfStocknames) throws Exception {
-		Map<String, Stock> stocks = YahooFinance.get(listOfStocknames);
+	public Map<String, Stock> getListOfStocks(List<StockString> listOfStocknames) throws Exception {
+		String[] stockString= new String [] {};
+		
+		listOfStocknames.forEach(stock ->{
+			stock.getStockString();
+			for(int i=0;i<=listOfStocknames.size();i++) {
+				stockString[i]= stock.getStockString();
+			}
+			});
+		Map<String, Stock> stocks = YahooFinance.get(stockString);
 		return stocks;
 	}
 
@@ -94,6 +102,8 @@ public class UserServiceImpl implements UserService {
 		port.getPortfolioStingStocks().remove(stock);
 		return port;
 	}
+
+	
 	
 	
 	
