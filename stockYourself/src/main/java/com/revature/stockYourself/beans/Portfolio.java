@@ -38,7 +38,6 @@ public class Portfolio {
 	}
 	
 	
-	
 	public List<StockString> getPortfolioStingStocks() {
 		return portfolioStingStocks;
 	}
