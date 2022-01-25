@@ -1,10 +1,12 @@
 package com.revature.stockYourself.services;
 
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Calendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,6 +18,7 @@ import com.revature.stockYourself.beans.User;
 import com.revature.stockYourself.data.PortfolioRepository;
 import com.revature.stockYourself.data.PostRepository;
 import com.revature.stockYourself.data.UserRepository;
+
 import com.revature.stockYourself.exceptions.IncorrectCredentialsException;
 import com.revature.stockYourself.exceptions.UsernameAlreadyExistsException;
 
@@ -48,7 +51,7 @@ public class UserServiceImpl implements UserService {
 				throw new UsernameAlreadyExistsException();
 			else return null;
 		}
-	}
+  }  
 
 	@Override
 	public User logIn(String username, String password) throws IncorrectCredentialsException {
@@ -85,6 +88,7 @@ public class UserServiceImpl implements UserService {
 			}
 			});
 		Map<String, Stock> stocks = YahooFinance.get(stockString);
+
 		return stocks;
 	}
 
@@ -96,7 +100,7 @@ public class UserServiceImpl implements UserService {
 		Stock stock = YahooFinance.get(stockname, from, to, Interval.WEEKLY);
 		return stock;
 	}
-	
+
 	@Override
 	public Portfolio addStockToPortfolio(User user,StockString stock) {
 		Portfolio port = user.getPortfolio();
@@ -188,3 +192,4 @@ public class UserServiceImpl implements UserService {
 		
 
 }
+

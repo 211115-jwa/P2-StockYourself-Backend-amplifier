@@ -1,16 +1,24 @@
 package com.revature.stockYourself.services;
 
+
 import java.util.List;
 import java.util.Map;
 
 import com.revature.stockYourself.beans.Portfolio;
 import com.revature.stockYourself.beans.Post;
 import com.revature.stockYourself.beans.StockString;
+
+import java.util.Set;
+
+
 import com.revature.stockYourself.beans.User;
 import com.revature.stockYourself.exceptions.IncorrectCredentialsException;
 import com.revature.stockYourself.exceptions.UsernameAlreadyExistsException;
 
 import yahoofinance.Stock;
+
+import yahoofinance.YahooFinance;
+
 
 public interface UserService {
 	public User register(User newUser) throws UsernameAlreadyExistsException;
@@ -26,4 +34,7 @@ public interface UserService {
 	public List<Post> getAllPosts();
 	public List<Post> getAllPostsByCreator(User creator);
 	public List<Post> getAllPostsByPortfolio(Portfolio portfolioPostedOn);
+	public Map<String, Stock> getListOfStocks(String[] listOfStocknames)throws Exception;
+	public Stock getStockHistoryWeekly(String stockname,int years) throws Exception;
 }
+

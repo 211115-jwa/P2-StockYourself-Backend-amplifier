@@ -1,5 +1,4 @@
 package com.revature.stockYourself.controllers;
-
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -90,5 +89,4 @@ public class UsersController {
 			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
 		}
 	}
-	
 }

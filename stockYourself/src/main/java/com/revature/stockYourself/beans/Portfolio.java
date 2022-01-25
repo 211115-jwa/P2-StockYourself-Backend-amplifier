@@ -1,8 +1,10 @@
 package com.revature.stockYourself.beans;
 
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;import javax.persistence.Entity;
+import java.util.Objects;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -10,6 +12,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import java.util.Set;
+
+import yahoofinance.Stock;
+
 
 @Entity
 @Table(name="portfolio")
@@ -40,8 +47,7 @@ public class Portfolio {
 	}
 	
 	
-<<<<<<< HEAD
-=======
+
 	
 	public String getPortfolioName() {
 		return portfolioName;
@@ -51,7 +57,7 @@ public class Portfolio {
 		this.portfolioName = portfolioName;
 	}
 
->>>>>>> 2dfb09b2e77830864646fb920f6cf5c8e718e8b7
+
 	public List<StockString> getPortfolioStingStocks() {
 		return portfolioStingStocks;
 	}
@@ -59,6 +65,7 @@ public class Portfolio {
 	public void setPortfolioStingStocks(List<StockString> portfolioStingStocks) {
 		this.portfolioStingStocks = portfolioStingStocks;
 	}
+
 
 	@Override
 	public String toString() {
@@ -80,12 +87,10 @@ public class Portfolio {
 		if (getClass() != obj.getClass())
 			return false;
 		Portfolio other = (Portfolio) obj;
+
 		return portfolioId == other.portfolioId && Objects.equals(portfolioName, other.portfolioName)
 				&& Objects.equals(portfolioStingStocks, other.portfolioStingStocks);
-	}
-	
-	
 
-	
+	}
 	
 }
